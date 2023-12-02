@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/array_strings_are_equal_1662/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/buddy_strings_859/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/game_of_life_289/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/minimum_one_bit_operations_1611/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/number_of_1_bits_191/src" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/src/array_strings_are_equal_1662/target" />
+      <excludeFolder url="file://$MODULE_DIR$/src/buddy_strings_859/target" />
+      <excludeFolder url="file://$MODULE_DIR$/src/game_of_life_289/target" />
+      <excludeFolder url="file://$MODULE_DIR$/src/minimum_one_bit_operations_1611/target" />
+      <excludeFolder url="file://$MODULE_DIR$/src/number_of_1_bits_191/target" />
+      <excludeFolder url="file://$MODULE_DIR$/target" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
