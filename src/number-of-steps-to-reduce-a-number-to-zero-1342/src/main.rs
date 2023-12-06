@@ -1,10 +1,10 @@
 /////////////////////////////////////////////////////////////
-// 1611. Minimum One Bit Operations to Make Integers Zero
-// https://leetcode.com/problems/minimum-one-bit-operations-to-make-integers-zero/
+// 1342. Number of Steps to Reduce a Number to Zero
+// https://leetcode.com/problems/number-of-steps-to-reduce-a-number-to-zero/description/
 
 use std::time;
 
-static MODULE_NAME: &str = "change-me-0001";
+static MODULE_NAME: &str = "number-of-steps-to-reduce-a-number-to-zero-1342";
 
 #[allow(dead_code)]
 #[allow(non_snake_case)]
@@ -21,24 +21,28 @@ struct Solution {}
 
 pub fn run() {
     struct TestCase {
-        a: String,
-        b: String,
-        result: bool,
+        a: i32,
+        result: i32,
     }
 
     let test_cases = [
         TestCase {
-            a: "ab".to_string(),
-            b: "ba".to_string(),
-            result: true,
+            a: 14,
+            result: 6,
+        },
+        TestCase {
+            a: 8,
+            result: 4,
+        },
+        TestCase {
+            a: 123,
+            result: 12,
         },
     ];
 
     for i in 0..test_cases.len() {
         // rename solution
-        if Solution::solution(
-            test_cases[i].a.to_string(),
-            test_cases[i].b.to_string()) == test_cases[i].result {
+        if Solution::number_of_steps(test_cases[i].a) == test_cases[i].result {
             println!("Test case {} passed", i + 1);
         } else {
             println!("Test case {} FAILED", i + 1);
@@ -53,7 +57,18 @@ pub fn run() {
 #[allow(non_snake_case)]
 
 impl Solution {
-    pub fn solution(s: String, goal: String) -> bool {
-        true
+    pub fn number_of_steps(num: i32) -> i32 {
+        let mut n = num;
+        let mut result:i32 = 0;
+
+        while n > 0 {
+            if n % 2 == 0 {
+                n/= 2;
+            } else {
+                n -= 1;
+            }
+            result += 1;
+        }
+        result
     }
 }

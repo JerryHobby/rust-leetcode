@@ -1,10 +1,10 @@
 /////////////////////////////////////////////////////////////
-// 1611. Minimum One Bit Operations to Make Integers Zero
-// https://leetcode.com/problems/minimum-one-bit-operations-to-make-integers-zero/
+// 383. Ransom Note
+// https://leetcode.com/problems/ransom-note/description/
 
 use std::time;
 
-static MODULE_NAME: &str = "change-me-0001";
+static MODULE_NAME: &str = "ransom-note-383";
 
 #[allow(dead_code)]
 #[allow(non_snake_case)]
@@ -28,15 +28,25 @@ pub fn run() {
 
     let test_cases = [
         TestCase {
-            a: "ab".to_string(),
-            b: "ba".to_string(),
+            a: "a".to_string(),
+            b: "b".to_string(),
+            result: false,
+        },
+        TestCase {
+            a: "aa".to_string(),
+            b: "ab".to_string(),
+            result: false,
+        },
+        TestCase {
+            a: "aa".to_string(),
+            b: "aab".to_string(),
             result: true,
         },
     ];
 
     for i in 0..test_cases.len() {
         // rename solution
-        if Solution::solution(
+        if Solution::can_construct(
             test_cases[i].a.to_string(),
             test_cases[i].b.to_string()) == test_cases[i].result {
             println!("Test case {} passed", i + 1);
@@ -51,9 +61,20 @@ pub fn run() {
 // Solution implementation
 
 #[allow(non_snake_case)]
-
 impl Solution {
-    pub fn solution(s: String, goal: String) -> bool {
+    pub fn can_construct(ransom_note: String, magazine: String) -> bool {
+        let mut magazine_counts: [u16; 26] = [0; 26];
+
+        for ch in magazine.bytes() {
+            magazine_counts[(ch - b'a') as usize] += 1;
+        }
+        for ch in ransom_note.bytes() {
+            let index = (ch - b'a') as usize;
+            match magazine_counts[index].checked_sub(1) {
+                Some(count) => magazine_counts[index] = count,
+                None => return false,
+            }
+        }
         true
     }
 }

@@ -4,7 +4,7 @@
 
 use std::time;
 
-static MODULE_NAME: &str = "change-me-0001";
+static MODULE_NAME: &str = "richest-customer-wealth-1672";
 
 #[allow(dead_code)]
 #[allow(non_snake_case)]
@@ -21,24 +21,29 @@ struct Solution {}
 
 pub fn run() {
     struct TestCase {
-        a: String,
-        b: String,
-        result: bool,
+        a: Vec<Vec<i32>>,
+        result: i32,
     }
 
     let test_cases = [
         TestCase {
-            a: "ab".to_string(),
-            b: "ba".to_string(),
-            result: true,
+            a: [[1,2,3].to_vec(),[3,2,1].to_vec()].to_vec(),
+            result: 6,
+        },
+        TestCase {
+            a: [[1,5].to_vec(),[7,3].to_vec(),[3,5].to_vec()].to_vec(),
+            result: 10,
+        },
+        TestCase {
+            a: [[2,8,7].to_vec(),[7,1,3].to_vec(),[1,9,5].to_vec()].to_vec(),
+            result: 17,
         },
     ];
 
     for i in 0..test_cases.len() {
         // rename solution
-        if Solution::solution(
-            test_cases[i].a.to_string(),
-            test_cases[i].b.to_string()) == test_cases[i].result {
+        if Solution::maximum_wealth(
+            test_cases[i].a.clone()) == test_cases[i].result {
             println!("Test case {} passed", i + 1);
         } else {
             println!("Test case {} FAILED", i + 1);
@@ -53,7 +58,7 @@ pub fn run() {
 #[allow(non_snake_case)]
 
 impl Solution {
-    pub fn solution(s: String, goal: String) -> bool {
-        true
+    pub fn maximum_wealth(accounts: Vec<Vec<i32>>) -> i32 {
+     accounts.iter().map(|x| x.iter().sum::<i32>()).max().unwrap()
     }
 }
